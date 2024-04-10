@@ -1,6 +1,4 @@
 const Filter = ({ onChange }) => {
-	const handleChange = e => {};
-
 	return (
 		<input
 			onChange={onChange}

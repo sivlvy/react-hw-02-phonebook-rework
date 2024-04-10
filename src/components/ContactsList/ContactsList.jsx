@@ -1,5 +1,4 @@
 import React from 'react';
-import ContactListItem from './ContactListItem/ContactListItem';
 const ContactsList = ({ contacts, onDeleteContact }) => {
 	return (
 		<ul className="mt-10">
