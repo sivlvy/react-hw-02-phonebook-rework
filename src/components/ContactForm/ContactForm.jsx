@@ -1,9 +1,15 @@
 import { Formik, Field, Form } from 'formik';
+import * as Yup from 'yup';
 
 const initialValues = {
 	name: '',
 	phone: '',
 };
+
+const schema = Yup.object().shape({
+	name: Yup.string().required().min(3),
+	phone: Yup.number().required().max(12).min(9),
+});
 
 const ContactForm = ({ onSubmit }) => {
 	const handleSubmit = (values, { resetForm }) => {
@@ -13,8 +19,12 @@ const ContactForm = ({ onSubmit }) => {
 
 	return (
 		<div>
-			<Formik onSubmit={handleSubmit} initialValues={initialValues}>
-				<Form className="flex flex-col">
+			<Formik
+				onSubmit={handleSubmit}
+				initialValues={initialValues}
+				validationSchema={schema}
+			>
+				<Form className="flex flex-col gap-20">
 					<div className="flex gap-10">
 						<Field
 							className="bg-zinc-200 text-zinc-600 font-mono ring-1 ring-zinc-400 focus:ring-2 focus:ring-teal-300 outline-none duration-300 placeholder:text-zinc-600 placeholder:opacity-50 rounded-full px-4 py-1 shadow-md focus:shadow-lg focus:shadow-teal-400"

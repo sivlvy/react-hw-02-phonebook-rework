@@ -55,12 +55,14 @@ export const App = () => {
 	return (
 		<Container>
 			<div className="flex justify-between">
-				<div>
-					<h1 className="font-bold text-xl text-center font-mono">Phonebook</h1>
+				<div className="">
+					<h1 className="font-bold text-xl text-center font-mono mb-10">
+						Phonebook
+					</h1>
 					<ContactForm onSubmit={formSubmitHandler} />
 				</div>
 				<div>
-					<h2 className="font-bold text-center text-xl">Contacts</h2>
+					<h2 className="font-bold text-center text-xl mb-10">Contacts</h2>
 					<Filter onChange={handleChange} />
 					<ContactsList
 						contacts={visibleContacts}
